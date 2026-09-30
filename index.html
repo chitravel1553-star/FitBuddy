@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitBuddy</title>
+    <title>FitBuddy - AI Fitness Plan Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to FitBuddy!</h1>
-    <p>Track your daily workouts and fitness goals.</p>
+
+    <div class="container">
+        <h1>FitBuddy 🏋️‍♂️</h1>
+        <p>AI-powered Fitness and Diet Plan Generator</p>
+
+        <form id="fitness-form">
+
+            <div class="input-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" required placeholder="Ex: 25">
+            </div>
+
+            <div class="input-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" required placeholder="Ex: 70">
+            </div>
+
+            <div class="input-group">
+                <label for="goal">Goal:</label>
+                <select id="goal">
+                    <option value="Weight Loss">Weight Loss</option>
+                    <option value="Muscle Gain">Muscle Gain</option>
+                    <option value="Stay Fit">Stay Fit</option>
+                </select>
+            </div>
+
+            <button type="submit" id="generate-btn">
+                Generate Plan
+            </button>
+
+        </form>
+
+        <div id="output-container" class="hidden">
+            <h2>Your AI Fitness Plan:</h2>
+            <div id="output-content"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
