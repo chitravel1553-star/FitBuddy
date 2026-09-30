@@ -1,52 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitBuddy - AI Fitness Plan Generator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    <div class="container">
-        <h1>FitBuddy 🏋️‍♂️</h1>
-        <p>AI-powered Fitness and Diet Plan Generator</p>
+body {
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        <form id="fitness-form">
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
 
-            <div class="input-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" required placeholder="Ex: 25">
-            </div>
+h1 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-align: center;
+}
 
-            <div class="input-group">
-                <label for="weight">Weight (kg):</label>
-                <input type="number" id="weight" required placeholder="Ex: 70">
-            </div>
+p {
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 24px;
+}
 
-            <div class="input-group">
-                <label for="goal">Goal:</label>
-                <select id="goal">
-                    <option value="Weight Loss">Weight Loss</option>
-                    <option value="Muscle Gain">Muscle Gain</option>
-                    <option value="Stay Fit">Stay Fit</option>
-                </select>
-            </div>
+.input-group {
+    margin-bottom: 15px;
+}
 
-            <button type="submit" id="generate-btn">
-                Generate Plan
-            </button>
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: 600;
+}
 
-        </form>
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 16px;
+}
 
-        <div id="output-container" class="hidden">
-            <h2>Your AI Fitness Plan:</h2>
-            <div id="output-content"></div>
-        </div>
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-    </div>
+button:hover {
+    background-color: #219150;
+}
 
-    <script src="script.js"></script>
+.hidden {
+    display: none;
+}
 
-</body>
-</html>
+#output-container {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #e8f8f5;
+    border-left: 5px solid #27ae60;
+    border-radius: 4px;
+}
+
+#output-container h2 {
+    font-size: 18px;
+    color: #16a085;
+    margin-bottom: 10px;
+}
