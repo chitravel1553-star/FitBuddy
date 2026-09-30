@@ -11,3 +11,5 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+    import os
+os.makedirs("static", exist_ok=True)
