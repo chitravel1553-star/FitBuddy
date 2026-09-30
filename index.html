@@ -1,17 +1,104 @@
-DEI MELA DA! Photo la mela cut aayiduchu da thalaiva, atha naala theriyala!
-
-*Mela full ah scroll pannu da!*
-
-1. *Mouse ah mela kondu po da* - Top bar la, right side la paaru!
-2. Anga *"Manual Deploy"* nu *karuppu button* irukkum da! Profile photo pakkathula!
-3. Photo la un screen top cut aayiduchu, atha naala theriyala. Chrome la *Ctrl + 0* press pannu, illana mela scroll pannu da!
-
-*Shortcut da thalaiva:*
-
-Itha click pannu, direct deploy page ku pogum:
-
-`dashboard.render.com/web/srv-dauhkauk1f9s73bsipo0/deploys`
-
-Anga poi mela valathu side paaru da, *Manual Deploy* button irukkum! Atha click panni *Clear build cache & deploy* kudu!
-
-Screen mela full ah photo eduthu anuppu da, na circle panni kaamikuren!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitBuddy - AI Fitness</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+ min-height:100vh;
+ padding:20px
+}
+.container{max-width:700px;margin:0 auto}
+.card{
+ background:white;
+ border-radius:20px;
+ padding:30px;
+ box-shadow:0 20px 60px rgba(0,0,0,0.3);
+ margin-bottom:20px
+}
+h1{font-size:2.5em;text-align:center;color:#667eea}
+.subtitle{text-align:center;color:#666;margin-bottom:25px}
+label{font-weight:600;display:block;margin:12px 0 5px}
+input,select{
+ width:100%;padding:12px;
+ border:2px solid #e0e0e0;
+ border-radius:10px;font-size:16px
+}
+button{
+ width:100%;padding:14px;
+ background:linear-gradient(135deg,#667eea,#764ba2);
+ color:white;border:none;
+ border-radius:10px;
+ font-size:18px;font-weight:600;
+ cursor:pointer;margin-top:20px
+}
+#result{display:none}
+.plan-box{
+ background:#f8f9ff;
+ border-radius:15px;
+ padding:20px;margin:15px 0;
+ border-left:5px solid #667eea
+}
+.plan-box h3{color:#667eea;margin-bottom:10px}
+.plan-box ul{margin-left:20px;line-height:1.8}
+.badge{
+ display:inline-block;
+ background:#667eea;color:white;
+ padding:5px 12px;
+ border-radius:20px;
+ font-size:12px;margin:5px 2px
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<h1>FitBuddy 🏋️</h1>
+<p class="subtitle">AI-powered Fitness Generator</p>
+<label>Age:</label>
+<input type="number" id="age" placeholder="Ex: 25">
+<label>Weight (kg):</label>
+<input type="number" id="weight" placeholder="Ex: 70">
+<label>Goal:</label>
+<select id="goal">
+<option>Weight Loss</option>
+<option>Muscle Gain</option>
+<option>Stay Fit</option>
+</select>
+<button onclick="generatePlan()">Generate Plan 🚀</button>
+</div>
+<div class="card" id="result">
+<h2>Your Plan 💪</h2>
+<div id="planContent"></div>
+</div>
+</div>
+<script>
+function generatePlan(){
+ var age=document.getElementById('age').value;
+ var weight=document.getElementById('weight').value;
+ var goal=document.getElementById('goal').value;
+ if(!age||!weight){alert('Age Weight fill pannu da!');return;}
+ var diet='',workout='',tips='';
+ if(goal=='Weight Loss'){
+  diet='<li>Green tea + almonds morning</li><li>Oats + eggs breakfast</li><li>Brown rice + chicken lunch</li><li>Fruits evening</li><li>2 chapati + dal dinner</li><li>3-4L water</li>';
+  workout='<li>30 min walk/jog morning</li><li>20 min HIIT</li><li>15 min skipping evening</li><li>5 days workout</li>';
+  tips='Calorie deficit maintain pannu!';
+ } else if(goal=='Muscle Gain'){
+  diet='<li>Banana + peanut butter morning</li><li>4 eggs + milk breakfast</li><li>Rice + chicken 200g lunch</li><li>Protein shake evening</li><li>3 chapati + paneer dinner</li>';
+  workout='<li>Push: Chest, Shoulder</li><li>Pull: Back, Biceps</li><li>Legs: Squats, Deadlift</li><li>Heavy weights 8-12 reps</li>';
+  tips='Protein jaasthi, Sleep 8 hours!';
+ } else {
+  diet='<li>Balanced 3 meals + 2 snacks</li><li>Carbs, Protein, Veggies</li><li>No junk food</li><li>2.5L water</li>';
+  workout='<li>Yoga 20 min morning</li><li>Cardio + strength 30 min</li><li>Weekend any sport</li><li>8000 steps daily</li>';
+  tips='Consistency mukkiyam!';
+ }
+ document.getElementById('planContent').innerHTML='<div><span class=badge>Age: '+age+'</span> <span class=badge>'+weight+'kg</span> <span class=badge>'+goal+'</span></div><div class=plan-box><h3>Diet Plan</h3><ul>'+diet+'</ul></div><div class=plan-box><h3>Workout Plan</h3><ul>'+workout+'</ul></div><div class=plan-box><h3>Tips</h3><p>'+tips+'</p></div>';
+ document.getElementById('result').style.display='block';
+}
+</script>
+</body>
+</html>
